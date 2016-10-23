@@ -36,6 +36,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+// Used code from Android Developer
 
 /**
  * A simple {@link Fragment} subclass.
@@ -160,8 +161,6 @@ public class AnalyticsFragment extends Fragment {
         stdFour = (TextView) rootView.findViewById(R.id.stdFour);
 
         mChart = (LineChart) rootView.findViewById(R.id.chart1);
-        //mChart.setOnChartGestureListener(this);
-        //mChart.setOnChartValueSelectedListener(this);
         mChart.setDrawGridBackground(false);
 
         // no description text
@@ -177,37 +176,21 @@ public class AnalyticsFragment extends Fragment {
         // if disabled, scaling can be done on x- and y-axis separately
         mChart.setPinchZoom(false);
 
-        // set an alternative background color
-        // mChart.setBackgroundColor(Color.GRAY);
-        //#0066FF
-
-
         XAxis xAxis = mChart.getXAxis();
-        //xAxis.enableGridDashedLine(10f, 10f, 0f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1f);
 
-        //Typeface tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
         leftAxis.setAxisMaximum(100f);
         leftAxis.setAxisMinimum(0f);
-        //leftAxis.setYOffset(20f);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
         leftAxis.setDrawZeroLine(false);
 
         mChart.getAxisRight().setEnabled(false);
         // add data
         mChart.invalidate();
-
-        //mChart.invalidate();
-
-        // get the legend (only possible after setting data)
-        //Legend l = mChart.getLegend();
-
-        // modify the legend ...
-        //l.setForm(Legend.LegendForm.LINE);
 
         //Pie chart now below
 
@@ -217,9 +200,6 @@ public class AnalyticsFragment extends Fragment {
         mChartTwo.setExtraOffsets(0, 25, 0, 0);
 
         mChartTwo.setDragDecelerationFrictionCoef(0.95f);
-
-        //mChartTwo.setCenterTextTypeface(mTfLight);
-        //mChartTwo.setCenterText(generateCenterSpannableText());
 
         mChartTwo.setDrawHoleEnabled(true);
         mChartTwo.setHoleColor(Color.WHITE);
@@ -248,7 +228,6 @@ public class AnalyticsFragment extends Fragment {
 
 
         mChartTwo.setEntryLabelColor(Color.WHITE);
-        //mChartTwo.setEntryLabelTypeface(mTfRegular);
         mChartTwo.setEntryLabelTextSize(12f);
         return rootView;
     }
@@ -260,6 +239,7 @@ public class AnalyticsFragment extends Fragment {
         }
     }
 
+    // Populates user data each time the fragment is visible
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -280,23 +260,6 @@ public class AnalyticsFragment extends Fragment {
         else {
         }
     }
-/*
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }*/
 
     /**
      * This interface must be implemented by activities that contain this
@@ -313,6 +276,7 @@ public class AnalyticsFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    // Populate line chart
     private void setData() {
         ArrayList<Entry> values = new ArrayList<Entry>();
         ArrayList<Float> myValues = myDbAccess.getMeans();
@@ -336,6 +300,7 @@ public class AnalyticsFragment extends Fragment {
         mChart.setData(data);
     }
 
+    // Populate pie chart
     private void setDataTwo() {
 
         ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
@@ -354,20 +319,11 @@ public class AnalyticsFragment extends Fragment {
         PieEntry highDistinction = new PieEntry(myValues.get(4), "High Distinction");
         entries.add(highDistinction);
 
-
-
-    /*
-    for (int i = 0; i < count ; i++) {
-
-        entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 5), mParties[i % mParties.length]));
-    }*/
-
         PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
 
         // add a lot of colors
-
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
         for (int c : ColorTemplate.VORDIPLOM_COLORS)
@@ -394,7 +350,6 @@ public class AnalyticsFragment extends Fragment {
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
         data.setValueTextColor(Color.WHITE);
-        //data.setValueTypeface(mTfLight);
         mChartTwo.setData(data);
 
         // undo all highlights
@@ -403,6 +358,7 @@ public class AnalyticsFragment extends Fragment {
         mChartTwo.invalidate();
     }
 
+    // Populate table
     private void setDataThree() {
         assDbHelper = new AssessmentNameDBHelper(getActivity());
         assDbAccess = new AssessmentNameAccess(assDbHelper);

@@ -65,6 +65,7 @@ public class StudentAccess implements DbAccess {
         studentContract.updatePhoto(stu);
     }
 
+    // Gets means for populating analytics
     public ArrayList<Float> getMeans() {
         int totalOne = 0;
         int totalTwo = 0;
@@ -119,6 +120,7 @@ public class StudentAccess implements DbAccess {
         return means;
     }
 
+    // Gets medians for populating analytics table
     public ArrayList<Integer> getMedians() {
         List<Student> students = getAll();
         ArrayList<Student> studentListOne = new ArrayList<>();
@@ -176,6 +178,7 @@ public class StudentAccess implements DbAccess {
         return medians;
     }
 
+    // Gets ranges for populating analytics table
     public ArrayList<Integer> getRanges() {
         int lowestAssessmentOne = 100;
         int lowestAssessmentTwo = 100;
@@ -229,6 +232,7 @@ public class StudentAccess implements DbAccess {
         return ranges;
     }
 
+    // Gets standard deviations for populating analytics table
     public ArrayList<Float> getStdDeviations() {
         int executed = 0;
         int sdTotalOne = 0;
@@ -274,6 +278,7 @@ public class StudentAccess implements DbAccess {
         return standardDeviations;
     }
 
+    // Gets pie chart %'s to populate pie chart graph
     public ArrayList<Float> getPieChartDataSpread() {
         List<Student> students = getAll();
         int size = students.size() * 4;

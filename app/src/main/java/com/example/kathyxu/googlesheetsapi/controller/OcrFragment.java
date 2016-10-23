@@ -143,32 +143,6 @@ public class OcrFragment extends Fragment {
         return rootView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    /*
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-    */
-/*
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-*/
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -196,22 +170,4 @@ public class OcrFragment extends Fragment {
             System.out.println(str);
         }
     }
-/*
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == 3) {
-            /*
-            if(resultCode == RESULT_OK){
-                String result = data.getStringExtra("result");
-            }
-            if (resultCode == RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
-
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-
-    }
-        */
 }
