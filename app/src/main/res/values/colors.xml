@@ -9,7 +9,6 @@
     <color name="colourLightBlue">#0099ff</color>
     <color name="darkPurple">#9856FF</color>
 
-
     <color name="themeGreen">#96E54E</color>
     <color name="themeBlack">#344251</color>
     <color name="themeBlue">#09A1FF</color>
@@ -17,5 +16,12 @@
     <color name="themeOrange">#FF8300</color>
     <color name="themePurple">#6836C5</color>
     <color name="themePink">#FC0361</color>
+    <color name="themeGrey">#E5E5E5</color>
 
+    <color name="matLightBlue">#99f3ff</color>
+    <color name="matBlue">#00bcd4</color>
+    <color name="matYellow">#ffdc00</color>
+    <color name="matDarkBlue">#0096a6</color>
+    <color name="orange">#ff9966</color>
+    <color name="lightOrange">#ffdccc</color>
 </resources>

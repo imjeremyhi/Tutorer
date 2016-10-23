@@ -1,105 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appbar"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/topbox"
+            android:background="@color/orange">
+
         <ImageView
             android:id="@+id/photo"
-            android:layout_width="150dp"
-            android:layout_height="150dp" />
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name label is here"
-            android:layout_toRightOf="@+id/photo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/dp"
+            android:layout_margin="20dp"
             />
-        <TextView
-            android:id="@+id/zID"
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="zID label is here"
-            android:layout_below="@+id/name"
-            android:layout_toRightOf="@+id/photo"
-
-            />
-        <TextView
-            android:id="@+id/tut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="tut label is here"
-            android:layout_below="@+id/zID"
-            android:layout_toRightOf="@+id/photo"
-
-            />
-        <TextView
-            android:id="@+id/zmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nazmailme label is here"
-            android:layout_below="@+id/tut"
-            android:layout_toRightOf="@+id/photo"
+            android:id="@+id/takePhoto"
+            android:background="@drawable/layout_button"
+            android:text="    Take a Photo    "
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/photo"
             />
 
-        <TableLayout
-            android:id="@+id/assessments"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/photo"
+            android:layout_toRightOf="@+id/photo"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/box"
             >
-
-            <TableRow
+            <TextView
+                android:id="@+id/name"
+                android:padding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-                <TextView
-                    android:text="Time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ass1"
-                    android:layout_column="1"
-                    android:layout_weight="1"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/enter1"
-                    android:layout_column="2"
-                    android:layout_weight="1"/>
-            </TableRow>
+                android:layout_height="wrap_content"
+                android:text="Name label is here"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                />
+            <TextView
+                android:id="@+id/zID"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="zID label is here"
+                android:layout_below="@+id/name"
+                android:textColor="#FFFFFF"
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-                <TextView
-                    android:text="Time"
-                    android:id="@+id/ass2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1" />
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/enter2"
-                    android:layout_column="2" />
-            </TableRow>
-        </TableLayout>
+                />
+            <TextView
+                android:id="@+id/tut"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tut label is here"
+                android:layout_below="@+id/zID"
+                android:textColor="#FFFFFF"
 
-        <TextView
-            android:id="@+id/comments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="comments label is here"
-            android:layout_below="@+id/assessments"
-            />
+                />
+            <TextView
+                android:id="@+id/zmail"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nazmailme label is here"
+                android:layout_below="@+id/tut"
+                android:textColor="#FFFFFF"
 
+                />
+
+        </RelativeLayout>
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/themeBlack"
+        android:textColor="@color/themeGrey"
+        android:gravity="center"
+        android:text="Assessments"
+        android:id="@+id/assessmentLabel"
+        android:layout_below="@+id/topbox"/>
+
+    <TableLayout
+        android:id="@+id/assessments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assessmentLabel"
+        android:layout_margin="20dp"
+
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <TextView
+                android:text="Assessment 1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ass1"
+                android:layout_column="1"
+                android:layout_weight="1" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentOneDisplay"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentOneEdit"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <TextView
+                android:text="Assessment 2"
+                android:id="@+id/ass2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentTwoDisplay"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:gravity="center"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentTwoEdit"
+                android:layout_column="2"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <TextView
+                android:text="Assessment 3"
+                android:id="@+id/ass3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentThreeDisplay"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentThreeEdit"
+                android:layout_column="2"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <TextView
+                android:text="Assessment 4"
+                android:id="@+id/ass4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentFourDisplay"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/assessmentFourEdit"
+                android:layout_column="2"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/saveButton"
+        android:layout_below="@+id/assessments"
+        android:text = "Save"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:background="@drawable/layout_button"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/editButton"
+        android:layout_below="@+id/assessments"
+        android:layout_centerInParent="true"
+        android:text = "Edit"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:background="@drawable/layout_button"
+        />
 
 
-</ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/themeBlack"
+        android:textColor="@color/themeGrey"
+        android:gravity="center"
+        android:text="Comments"
+        android:id="@+id/commentsLabel"
+        android:layout_below="@+id/assessments"
+        android:layout_marginTop="50dp"
+        />
+    <TextView
+        android:id="@+id/comments"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="comments label is here"
+        android:layout_below="@+id/commentsLabel"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/editComments"
+        android:layout_below="@+id/comments"
+        android:text="      edit comment      "
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/layout_button"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editCommentText"
+        android:layout_below="@+id/commentsLabel"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/editCommentText"
+        android:text="      save comment      "
+        android:layout_centerInParent="true"
+        android:id="@+id/saveComments"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_button"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberOfStudents"
+        android:layout_margin="20dp"
+        android:textColor="@color/themeBlack"/>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>
